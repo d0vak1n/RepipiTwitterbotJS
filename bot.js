@@ -1,19 +1,24 @@
-var Twit = require('twit')
-const auth = require('./config')
+var Twit = require('twit');
+const auth = require('./config');
 const bdwds = require('./badwords');
 
-var arraybadwords; 
+var arraybadwords = bdwds.getDataSet("ESP");
 
 
 
+function twitearPalabra() {
 
-arraybadwords = bdwds.getDataSet("ESP")
+  var aleat = Math.round(Math.random()*arraybadwords.length-1);
+  var wordofhour = arraybadwords[aleat];
 
-console.log(arraybadwords);
+  auth.T.post(
+    'statuses/update', {
+    status: 'La palabra de esta hora es: ' + wordofhour
+  },
+    function (err, data, response) {
+      data => { }
+      console.log(data);
+    })
+}
 
- 
-auth.T.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
-
-  data => {}
-  console.log(data)
-})
+setInterval(twitearPalabra, auth.T.setInterval);
