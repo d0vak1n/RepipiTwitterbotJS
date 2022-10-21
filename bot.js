@@ -21,4 +21,4 @@ function twitearPalabra() {
     })
 }
 
-setInterval(twitearPalabra, auth.T.setInterval);
+setInterval(twitearPalabra, 60*60*1000);
