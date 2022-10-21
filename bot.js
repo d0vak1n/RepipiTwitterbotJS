@@ -4,7 +4,7 @@ const bdwds = require('./badwords');
 
 var arraybadwords = bdwds.getDataSet("ESP");
 
-console.log("Bot iniciado, indexando insultos en idioma español");
+console.log("Bot iniciado, indexando insultos en idioma español :)");
 
 function twitearPalabra() {
 
