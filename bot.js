@@ -1,7 +1,19 @@
 var Twit = require('twit')
-const auth = require("./config")
+const auth = require('./config')
+const bdwds = require('./badwords');
+
+var arraybadwords; 
+
+
+
+
+arraybadwords = bdwds.getDataSet("ESP")
+
+console.log(arraybadwords);
 
  
-auth.T.get('search/tweets', { q: 'gilipollas since:2011-07-11', count: 10 }, function(err, data, response) {
+auth.T.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
+
+  data => {}
   console.log(data)
 })

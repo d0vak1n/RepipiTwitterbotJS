@@ -14,6 +14,7 @@
   "author": "RaMo",
   "license": "ISC",
   "dependencies": {
+    "cjs": "^0.0.11",
     "twit": "^2.2.11"
   }
 }
