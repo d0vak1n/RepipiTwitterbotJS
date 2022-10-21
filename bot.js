@@ -13,7 +13,7 @@ function twitearPalabra() {
 
   auth.T.post(
     'statuses/update', {
-    status: 'La palabra de esta hora es: ' + wordofhour
+    status: 'El insulto al que le debemos una ovación es: ' + wordofhour
   },
     function (err, data, response) {
       data => { }
@@ -21,4 +21,4 @@ function twitearPalabra() {
     })
 }
 
-setInterval(twitearPalabra, 120*1000);
+setInterval(twitearPalabra, 60*60*1000);
