@@ -21,4 +21,4 @@ function twitearPalabra() {
     })
 }
 
-setInterval(twitearPalabra, 60*60*1000);
+setInterval(twitearPalabra, 120*1000);
