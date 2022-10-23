@@ -4,7 +4,7 @@
   "description": "Twitter bot of badwords",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js",
+    "start": "pm2 start bot.js",
     "build": "pm2 start bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
