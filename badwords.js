@@ -1,7 +1,7 @@
 var fs = require('fs');
 const Twit = require('twit');
 var arraybadwords = getDataSet("ESP");
-var intervalo = 10 * 1000;
+var intervalo = 60*60 * 1000;
 const auth = require('./config');
 const { stringify } = require('querystring');
 var wordofhour;
