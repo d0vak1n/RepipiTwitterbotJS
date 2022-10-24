@@ -1,6 +1,5 @@
 var fs = require('fs');
 const Twit = require('twit');
-const obj = require('./tweetdata')
 var arraybadwords = getDataSet("ESP");
 var intervalo = 10 * 1000;
 const auth = require('./config');
