@@ -1,7 +1,7 @@
 var fs = require('fs');
 const Twit = require('twit');
 var arraybadwords = getDataSet("ESP");
-var intervalo = 10 * 1000;
+var intervalo = 60 * 60 * 1000;
 const auth = require('./config');
 const { stringify } = require('querystring');
 var wordofhour;
@@ -29,11 +29,11 @@ function twitearPalabra() {
       buscaPalabra(wordofhour);
       console.log("Twit creado con la palabra: " + wordofhour);
       console.log("Esperando " + intervalo / 1000 + " segundos");
-      
+
     })
 }
 
-function buscaPalabra(palabra){
+function buscaPalabra(palabra) {
   auth.T.get('search/tweets', { q: '' + palabra + ' since:2011-07-11', count: 2 }, function (err, data, response) {
     const datos = data;
     let i = 0;
@@ -49,14 +49,10 @@ function buscaPalabra(palabra){
 
 
 
-function retweeteaPalabra(id){
+function retweeteaPalabra(id) {
   auth.T.post('statuses/retweet/:id', { id: id }, function (err, data, response) {
     console.log(data);
   })
 }
 
-
-
-twitearPalabra();
-
-//setInterval(twitearPalabra, intervalo);
+setInterval(twitearPalabra, intervalo);
