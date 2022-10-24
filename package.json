@@ -4,8 +4,8 @@
   "description": "Twitter bot of badwords",
   "main": "bot.js",
   "scripts": {
-    "start": "pm2-runtime start ecosystem.config.js --env production",
-    "build": "pm2-runtime start ecosystem.config.js --env production",
+    "start": "node bot.js",
+    "build": "node bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
