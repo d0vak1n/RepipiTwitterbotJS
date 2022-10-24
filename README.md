@@ -26,7 +26,10 @@
   * * *
  
   ## Installation Process <a name='installation'></a>
-  1: run "npm i" 2: run "node bot.js" 
+  1: run 
+  npm i
+  2: run 
+  node bot.js
   * * *
 
   ## Usage <a name='usage'></a>
@@ -45,9 +48,4 @@
 
   ### Github Page
   Message me on Github: 
-  > [ruliniyo](https://github.com/ruliniyo)
-  
-  ### Email Adress
-  Send Me an email to:
-  > raul@ramoweb.com
-  
+  > [ruliniyo](https://github.com/ruliniyo) 
