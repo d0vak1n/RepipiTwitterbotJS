@@ -1,5 +1,4 @@
-
-  # RepipiTwitterBot
+ # RepipiTwitterBot
   * * *
 
   
@@ -15,33 +14,38 @@
   1. [Description](#descrption)
   2. [Installation](#installation)
   3. [Usage Tips](#usage)
-  4. [How to Contribute](#contributing)
-  10. [Questions](#questions)
-  11. [Tests](#test)
-  12. [Questions](#questions) 
+  4. [Questions](#questions)
   * * *
 
   ## Description <a name='description'></a>
-  Publish a badword every hour in spanish
+  Publish a badword every hour in spanish and retweet the last 2 tweets with that word.
   * * *
- 
+
   ## Installation Process <a name='installation'></a>
-  1: run 
-  npm i
-  2: run 
-  node bot.js
+  Run:
+
+	npm i
+
+  Then start with:
+  
+  	node bot.js
+	
   * * *
 
   ## Usage <a name='usage'></a>
-  
-  * * *
+ ```javascript
+var Twit = require('twit')
 
-  ## How to Contribute <a name='contributing'></a>
-   
-  * * *
+var T = new Twit ({
+  consumer_key: '',
+  consumer_secret: '',
+  access_token: '',
+  access_token_secret: '',
+  timeout_ms: 60 * 1000,  // optional HTTP request timeout to apply to all requests.
+  strictSSL: false,     // optional - requires SSL certificates to be valid.
+})
+```
 
-  ## Suggested Tests <a name='test'></a>
-  No
   * * *
 
   ## Questions <a name='questions'></a>
