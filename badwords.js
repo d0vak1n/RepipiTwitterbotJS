@@ -1,12 +1,9 @@
 var fs = require('fs');
-const Twit = require('twit');
-var arraybadwords = getDataSet("ESP");
-var intervalo = 60 * 60 * 1000;
 const auth = require('./config');
-const { stringify } = require('querystring');
-var wordofhour;
+const intervalo = require('./bot');
 
-module.exports = { getDataSet, twitearPalabra, wordofhour };
+var arraybadwords = getDataSet("ESP");
+var wordofhour;
 
 function getDataSet(filelang) {
   arraypal = fs.readFileSync('./dataset/' + filelang + '.txt').toString().split("\n");
@@ -25,9 +22,8 @@ function twitearPalabra() {
   },
     function (err, data, response) {
       data => { }
-      //console.log(data);
       buscaPalabra(wordofhour);
-      console.log("Twit creado con la palabra: " + wordofhour);
+      console.log("En la hora que viene, te declaro une: " + wordofhour);
       console.log("Esperando " + intervalo / 1000 + " segundos");
 
     })
@@ -45,9 +41,6 @@ function buscaPalabra(palabra) {
     }
   })
 }
-
-
-
 
 function retweeteaPalabra(id) {
   auth.T.post('statuses/retweet/:id', { id: id }, function (err, data, response) {
