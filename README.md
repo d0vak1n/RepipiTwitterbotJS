@@ -48,6 +48,18 @@ var T = new Twit ({
 
   * * *
 
+  ## Sequence Diagram <a name='diagram'></a>
+
+  ```seq
+  Note right of Repipi: Pick a random insult
+  Repipi-->Twitter: Get search query of that insult
+  Twitter-> Repipi: Last 2 tweets with that insult
+  Repipi-->Twitter: RT last 2 tweets
+  Repipi->Twitter: Tweet which word we picked
+  ```
+  * * *
+
+
   ## Questions <a name='questions'></a>
 
   ### Github Page
