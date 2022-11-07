@@ -1,6 +1,5 @@
 var fs = require('fs');
 const auth = require('./config');
-const intervalo = require('./bot');
 
 var arraybadwords = getDataSet("ESP");
 var wordofhour;
@@ -24,7 +23,7 @@ function twitearPalabra() {
       data => { }
       buscaPalabra(wordofhour);
       console.log("En la hora que viene, te declaro une: " + wordofhour);
-      console.log("Esperando " + intervalo / 1000 + " segundos");
+      console.log("Esperando " + auth.intervalo  + " segundos");
 
     })
 }
@@ -49,4 +48,4 @@ function retweeteaPalabra(id) {
 }
 
 
-setInterval(twitearPalabra, intervalo);
+setInterval(twitearPalabra, auth.intervalo);
