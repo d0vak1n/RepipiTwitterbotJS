@@ -47,5 +47,9 @@ function retweeteaPalabra(id) {
   })
 }
 
+function saveToDb() {
+  console.log("Guardando en la base de datos");
+}
+
 
 setInterval(twitearPalabra, auth.intervalo);
