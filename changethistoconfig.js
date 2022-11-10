@@ -16,6 +16,24 @@ var T = new Twit({
   access_token_secret:  '---',
   timeout_ms:           60*60*1000,  // optional HTTP request timeout to apply to all requests
   strictSSL:            false,     // optional - requires SSL certificates to be valid
-})
+});
 
-module.exports = { T ,intervalo };
+var conn = mysql.createConnection({
+  host: 'r---',
+  user: '---',
+  password: '---',
+  database: '---',
+  port:3306
+});
+
+function pruebaconexion(){
+  conn.connect(function(err) {
+      if (err) {
+        return console.error('error: ' + err.message);
+      }
+    
+      console.log('Conectado a la base de datos');
+    });
+}
+
+module.exports = { T ,intervalo, conn, pruebaconexion };

@@ -1,5 +1,6 @@
 var fs = require('fs');
 const auth = require('./config');
+const db = require('./config');
 
 var arraybadwords = getDataSet("ESP");
 var wordofhour;
