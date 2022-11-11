@@ -19,7 +19,7 @@ var T = new Twit({
 });
 
 var conn = mysql.createConnection({
-  host: 'r---',
+  host: '---',
   user: '---',
   password: '---',
   database: '---',

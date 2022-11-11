@@ -26,13 +26,13 @@
 
 	npm i
 
-  Then start with:
+  Then start after usage tips with:
   
   	node bot.js
 	
   * * *
 
-  ## Usage <a name='usage'></a>
+  ## Usage (change the "changethistoconfig.js" to "config.js"<a name='usage'></a>
  ```javascript
 var Twit = require('twit')
 
@@ -44,6 +44,14 @@ var T = new Twit ({
   timeout_ms: 60 * 1000,  // optional HTTP request timeout to apply to all requests.
   strictSSL: false,     // optional - requires SSL certificates to be valid.
 })
+
+var conn = mysql.createConnection({
+  host: '---',
+  user: '---',
+  password: '---',
+  database: '---',
+  port:3306
+});
 ```
 
   * * *
@@ -52,10 +60,3 @@ var T = new Twit ({
 
 ![Sequence diagram](https://ramoweb.com/wp-content/uploads/2022/10/capturadiagrama.png "Sequence diagram")
   * * *
-
-
-  ## Questions <a name='questions'></a>
-
-  ### Github Page
-  Message me on Github: 
-  > [ruliniyo](https://github.com/ruliniyo) 
