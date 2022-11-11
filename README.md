@@ -32,7 +32,7 @@
 	
   * * *
 
-  ## Usage (change the "changethistoconfig.js" to "config.js"<a name='usage'></a>
+  ## Usage (change the "changethistoconfig.js" to "config.js")<a name='usage'></a>
  ```javascript
 var Twit = require('twit')
 
