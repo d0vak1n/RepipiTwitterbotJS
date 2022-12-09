@@ -7,6 +7,7 @@
 //  ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝ 
 // Change this file name to config.js
 var Twit = require('twit');
+var mysql = require('mysql');
 
 var intervalo = 60/* Minutes */ * 60 /* Seconds */ * 1000;
 var T = new Twit({
