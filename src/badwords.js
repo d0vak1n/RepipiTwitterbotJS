@@ -11,9 +11,9 @@ function getDataSet(filelang) {
 }
 
 
-function twitearPalabra() {
+function twitAndRetwitWord() {
   auth.connexionDB();
-  console.log("Se twitea");
+  console.log("Getting a badword...");
   var aleat = Math.round(Math.random() * arraybadwords.length - 1);
   wordofhour = arraybadwords[aleat];
 
@@ -23,14 +23,14 @@ function twitearPalabra() {
   },
     function (err, data, response) {
       data => { }
-      buscaPalabra(wordofhour);
+      searchTwitsWithWord(wordofhour);
       console.log("En la hora que viene, te declaro une: " + wordofhour);
       console.log("Esperando " + auth.intervalo + " segundos");
 
     })
 }
 
-function buscaPalabra(palabra) {
+function searchTwitsWithWord(palabra) {
   auth.T.get('search/tweets', { q: '' + palabra + ' since:2011-07-11', count: 2 }, function (err, data, response) {
     const datos = data;
     let i = 0;
@@ -38,13 +38,13 @@ function buscaPalabra(palabra) {
       console.log(datos.statuses[i].text);
       console.log(datos.statuses[i].id_str);
       saveToDb(datos.statuses[i].id_str, datos.statuses[i].text, palabra);
-      retweeteaPalabra(datos.statuses[i].id_str)
+      retweetWord(datos.statuses[i].id_str);
       i++;
     }
   })
 }
 
-function retweeteaPalabra(id) {
+function retweetWord(id) {
   auth.T.post('statuses/retweet/:id', { id: id }, function (err, data, response) {
   })
 }
@@ -57,4 +57,4 @@ function saveToDb(idtwit, texttwit, palabra) {
 
 
 // twitearPalabra();
-setInterval(twitearPalabra, auth.intervalo);
+setInterval(twitAndRetwitWord, auth.intervalo);
