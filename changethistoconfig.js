@@ -27,14 +27,15 @@ var conn = mysql.createConnection({
   port:3306
 });
 
-function pruebaconexion(){
-  conn.connect(function(err) {
-      if (err) {
-        return console.error('error: ' + err.message);
-      }
-    
-      console.log('Conectado a la base de datos');
-    });
+function connexionDB() {
+  conn.connect(function (err) {
+    if (err) {
+      return console.error('error: ' + err.message);
+    }
+
+    console.log('Conectado a la base de datos');
+  });
 }
 
-module.exports = { T ,intervalo, conn, pruebaconexion };
+
+module.exports = { T, intervalo, conn, connexionDB };
