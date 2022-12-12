@@ -1,20 +1,27 @@
 var fs = require('fs');
-const { stringify } = require('querystring');
+// const { stringify } = require('querystring');
 const auth = require('../config');
 
-var arraybadwords = getDataSet("ESP");
 var wordofhour;
 
-function getDataSet(filelang) {
-  arraypal = fs.readFileSync('./dataset/' + filelang + '.txt').toString().split("\n");
-  return arraypal;
+function getLang() {
+  let arrayLang = ['ESP', 'ARG'];
+  let aleat = Math.round(Math.random() * (arrayLang.length - 1));
+  let lang = arrayLang[aleat];
+  console.log('We decided to use ' + lang);
+  return lang;
 }
 
+function getDataSet(filelang) {
+  let arraypal = fs.readFileSync('./dataset/' + filelang + '.txt').toString().split("\n");
+  return arraypal;
+}
 
 function twitAndRetwitWord() {
   auth.connexionDB();
   console.log("Getting a badword...");
-  var aleat = Math.round(Math.random() * arraybadwords.length - 1);
+  var arraybadwords = getDataSet(getLang());
+  var aleat = Math.round(Math.random() * (arraybadwords.length - 1));
   wordofhour = arraybadwords[aleat];
 
   auth.T.post(
@@ -55,6 +62,5 @@ function saveToDb(idtwit, texttwit, palabra) {
   console.log("Guardando en la base de datos");
 }
 
-
-// twitearPalabra();
+// twitAndRetwitWord();
 setInterval(twitAndRetwitWord, auth.intervalo);
