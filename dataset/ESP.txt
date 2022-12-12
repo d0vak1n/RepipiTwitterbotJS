@@ -45,6 +45,7 @@ Arrastrazapatillas
 Arreplegat
 Arrollapasto
 Artosopas
+Artasopas
 Asalta asilos
 Asaltacunas
 Asaltapozos
@@ -94,11 +95,13 @@ Bocafiemo
 Boiano
 Bolascombro
 Boludo
+Boluda
 Bordegàs
 Borinot
 Borracha
 Borracho
 Borrico
+Borrica
 Bosses tristes
 Bosuso
 Botabancals
@@ -109,6 +112,7 @@ Brètol
 Bufavidres
 Bujarra
 Bujarron
+Bujarrona
 Bujarrón
 Bulebule
 Burreras
@@ -736,6 +740,8 @@ Retarded
 Retrasado
 Retrasubnormal
 Retropetuda
+Reventada
+Reventado
 Robaperas
 Rucio
 Ruda
