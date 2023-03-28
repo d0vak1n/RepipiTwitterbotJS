@@ -2,8 +2,6 @@ var fs = require("fs");
 // const { stringify } = require('querystring');
 const auth = require("../config");
 
-var wordofhour;
-
 function getLang() {
   let arrayLang = ["ESP", "ARG"];
   let aleat = Math.round(Math.random() * (arrayLang.length - 1));
@@ -25,7 +23,7 @@ function twitAndRetwitWord() {
   console.log("Getting a badword...");
   var arraybadwords = getDataSet(getLang());
   var aleat = Math.round(Math.random() * (arraybadwords.length - 1));
-  wordofhour = arraybadwords[aleat];
+  let wordofhour = arraybadwords[aleat];
 
   auth.T.post(
     "statuses/update",
@@ -80,5 +78,5 @@ function saveToDb(idtwit, texttwit, palabra) {
   console.log("Guardando en la base de datos");
 }
 
-// twitAndRetwitWord();
+//twitAndRetwitWord();
 setInterval(twitAndRetwitWord, auth.intervalo);
