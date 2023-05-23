@@ -1,6 +1,6 @@
-var fs = require("fs");
+import fs from 'fs';
 // const { stringify } = require('querystring');
-const auth = require("../config");
+import auth from "../config";
 
 function getLang() {
   let arrayLang = ["ESP", "ARG"];
@@ -10,7 +10,7 @@ function getLang() {
   return lang;
 }
 
-function getDataSet(filelang) {
+function getDataSet(filelang:any) {
   let arraypal = fs
     .readFileSync("./dataset/" + filelang + ".txt")
     .toString()
@@ -30,8 +30,8 @@ function twitAndRetwitWord() {
     {
       status: "En la hora que viene, te declaro une: " + wordofhour,
     },
-    function (err, data, response) {
-      (data) => {};
+    function (err:any, data:any, response:any) {
+      (data:any) => {};
       searchTwitsWithWord(wordofhour);
       console.log("En la hora que viene, te declaro une: " + wordofhour);
       console.log("Esperando " + auth.intervalo + " segundos");
@@ -39,11 +39,11 @@ function twitAndRetwitWord() {
   );
 }
 
-function searchTwitsWithWord(palabra) {
+function searchTwitsWithWord(palabra:string) {
   auth.T.get(
     "search/tweets",
     { q: "" + palabra + " since:2011-07-11", count: 2 },
-    function (err, data, response) {
+    function (err:any, data:any, response:any) {
       const datos = data;
       let i = 0;
       while (i < datos.statuses.length) {
@@ -57,15 +57,15 @@ function searchTwitsWithWord(palabra) {
   );
 }
 
-function retweetWord(id) {
+function retweetWord(id:any) {
   auth.T.post(
     "statuses/retweet/:id",
     { id: id },
-    function (err, data, response) {}
+    function (err:any, data:any, response:any) {}
   );
 }
 
-function saveToDb(idtwit, texttwit, palabra) {
+function saveToDb(idtwit:number, texttwit:string, palabra:string) {
   var query =
     "INSERT INTO `twits`(`rowid`, `idtweet`, `tweet`, `palabra`) VALUES (NULL," +
     idtwit +

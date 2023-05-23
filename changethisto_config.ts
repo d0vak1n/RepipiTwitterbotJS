@@ -29,7 +29,7 @@ var conn = mysql.createConnection({
 });
 
 function connexionDB() {
-  conn.connect(function (err) {
+  conn.connect(function (err:any) {
     if (err) {
       return console.error("error: " + err.message);
     }
@@ -38,4 +38,4 @@ function connexionDB() {
   });
 }
 
-module.exports = { T, intervalo, conn, connexionDB };
+export = { T, intervalo, conn, connexionDB };
