@@ -681,6 +681,7 @@ Perroflauta
 Personajullo
 Pescallunes
 Petimetre
+Petao
 Picapleitos
 Pichabrava
 Pichacorta
@@ -854,6 +855,7 @@ Xupaxarcos
 Yanflameja
 Yaro
 Yiyon
+Yonki
 Zaborrero
 Zafio
 Zalapastrán
