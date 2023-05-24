@@ -21,7 +21,7 @@ More infomration for this license can be found _[HERE](https://www.whitesourceso
 
 ## Description <a name='description'></a>
 
-Publish a badword every hour in spanish and retweet the last 2 tweets with that word.
+Publish a spanish badword every hour and retweet the last 2 tweets with that word.
 
 ---
 
@@ -33,11 +33,11 @@ Run:
 
 Then start after usage tips with:
 
-node bot.js
+    npm run start
 
 ---
 
-## Usage (change the "changethistoconfig.js" to "config.js")<a name='usage'></a>
+## Usage (change the "changethistoconfig.ts" to "config.ts")<a name='usage'></a>
 
 ```javascript
 var Twit = require("twit");
@@ -47,8 +47,8 @@ var T = new Twit({
   consumer_secret: "---",
   access_token: "---",
   access_token_secret: "---",
-  timeout_ms: 60 * 1000, // optional HTTP request timeout to apply to all requests.
-  strictSSL: false, // optional - requires SSL certificates to be valid.
+  timeout_ms: 60 * 60 * 1000, // optional HTTP request timeout to apply to all requests
+  strictSSL: false, // optional - requires SSL certificates to be valid
 });
 
 var conn = mysql.createConnection({
