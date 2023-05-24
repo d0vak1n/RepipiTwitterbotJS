@@ -29,7 +29,7 @@ var conn = mysql.createConnection({
 });
 
 function connexionDB() {
-  conn.connect(function (err:any) {
+  conn.connect(function (err: any) {
     if (err) {
       return console.error("error: " + err.message);
     }
