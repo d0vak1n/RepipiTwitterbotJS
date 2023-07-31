@@ -10,7 +10,7 @@
 var Twit = require("twit");
 var mysql = require("mysql");
 
-var intervalo = 60 /* Minutes */ * 10 /* Seconds */ * 1000;
+var intervalo = 60 /* Minutes */ * 60 /* Seconds */ * 1000;
 var T = new Twit({
   consumer_key: "---",
   consumer_secret: "---",
