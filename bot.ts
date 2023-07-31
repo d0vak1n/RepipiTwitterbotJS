@@ -3,7 +3,7 @@
 //
 const { fork } = require("child_process");
 
-fork("./src/badwords.ts");
+fork("./src/job.ts");
 
 console.log("                                                                ");
 console.log("██████╗ ███████╗██████╗ ██╗██████╗ ██╗██████╗  ██████╗ ████████╗");
