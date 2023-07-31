@@ -3,7 +3,7 @@ import fs from "fs";
 import auth from "../config";
 
 function getLang() {
-  let arrayLang = ["ESP", "ARG"];
+  let arrayLang = ["ESP"];
   let aleat = Math.round(Math.random() * (arrayLang.length - 1));
   let lang = arrayLang[aleat];
   console.log("We decided to use " + lang);
