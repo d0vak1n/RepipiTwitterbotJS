@@ -6,21 +6,23 @@
 // ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝
 //  ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝
 // Change this to config.js
-
-var Twit = require("twit");
+import TwitterApi from 'twitter-api-v2';
+// var Twit = require("twit");
 var mysql = require("mysql");
 
-var intervalo = 60 /* Minutes */ * 60 /* Seconds */ * 1000;
-var T = new Twit({
-  consumer_key: "---",
-  consumer_secret: "---",
-  access_token: "---",
-  access_token_secret: "---",
-  timeout_ms: 60 * 60 * 1000, // optional HTTP request timeout to apply to all requests
-  strictSSL: false, // optional - requires SSL certificates to be valid
+var intervalo = 60 /* Minutes */ * 10 /* Seconds */ * 1000;
+
+export const T = new TwitterApi({
+  appKey: '---',
+  appSecret: '---',
+  // Following access tokens are not required if you are
+  // at part 1 of user-auth process (ask for a request token)
+  // or if you want a app-only client (see below)
+  accessToken: '---',
+  accessSecret: '---',
 });
 
-var conn = mysql.createConnection({
+export var conn = mysql.createConnection({
   host: "---",
   user: "---",
   password: "---",
@@ -28,7 +30,7 @@ var conn = mysql.createConnection({
   port: 3306,
 });
 
-function connexionDB() {
+export function connexionDB() {
   conn.connect(function (err: any) {
     if (err) {
       return console.error("error: " + err.message);
@@ -37,5 +39,3 @@ function connexionDB() {
     console.log("Conectado a la base de datos");
   });
 }
-
-export = { T, intervalo, conn, connexionDB };
