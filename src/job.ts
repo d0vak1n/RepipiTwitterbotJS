@@ -34,4 +34,4 @@ async function twitAndRetwitWord() {
   client.v2.tweet("Que te pasa, " + wordofhour + "?");
 }
 
-setInterval(twitAndRetwitWord, 1 * 60 * 60 * 1000);
+twitAndRetwitWord();

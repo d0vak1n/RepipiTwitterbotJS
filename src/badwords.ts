@@ -1,5 +1,4 @@
 import fs from "fs";
-// const { stringify } = require('querystring');
 import auth from "../config";
 
 function getLang() {
