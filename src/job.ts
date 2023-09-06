@@ -37,7 +37,7 @@ async function twitAndRetwitWord() {
 
 
 
-cron.schedule('0 */1 * * *', () => {
+cron.schedule('0 * * * *', () => {
   console.log(' ');
   console.log('Starting again');
   console.log(' ');
