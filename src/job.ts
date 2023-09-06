@@ -1,6 +1,7 @@
 import { T as client, conn, connexionDB } from "../config";
 import fs from "fs";
 import TwitterApi from "twitter-api-v2";
+var cron = require('node-cron');
 
 function getLang() {
   let arrayLang = ["ESP"];
@@ -34,4 +35,12 @@ async function twitAndRetwitWord() {
   client.v2.tweet("Que te pasa, " + wordofhour + "?");
 }
 
-twitAndRetwitWord();
+
+
+cron.schedule('0 */1 * * *', () => {
+  console.log(' ');
+  console.log('Starting again');
+  console.log(' ');
+  twitAndRetwitWord();
+});
+
