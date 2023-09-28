@@ -1,6 +1,6 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { T as client, conn, connexionDB } from "../config";
+import { T as client, /* conn, connexionDB */ } from "../config";
 import fs from "fs";
 import cron from "node-cron";
 
