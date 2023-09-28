@@ -27,19 +27,21 @@ async function twitAndRetwitWord() {
   //  connexionDB();
   console.log("Getting a badword...");
   let arraybadwords = getDataSet(getLang());
+  console.log("array is " + arraybadwords);
   let aleat = Math.round(Math.random() * (arraybadwords.length - 1));
+  console.log("lenght is " + arraybadwords.length);
+  console.log("aleat is " + aleat);
   let wordofhour = arraybadwords[aleat];
   console.log("Word is " + wordofhour);
-
-  client.v2.tweet("Que te pasa, " + wordofhour + "?");
 }
 
-
-
+twitAndRetwitWord();
+/*
 cron.schedule('* * * * *', () => {
   console.log(' ');
   console.log('Starting again');
   console.log(' ');
   twitAndRetwitWord();
 });
+*/
 
