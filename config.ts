@@ -7,26 +7,27 @@
 //  ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝
 // Change this to config.js
 import TwitterApi from "twitter-api-v2";
-// var Twit = require("twit");
-var mysql = require("mysql");
+import dotenv from "dotenv";
+import mysql from "mysql";
 
-var intervalo = 60 /* Minutes */ * 10 /* Seconds */ * 1000;
+//const intervalo = 60 /* Minutes */ * 10 /* Seconds */ * 1000;
 
+dotenv.config()
 export const T = new TwitterApi({
-  appKey: "---",
-  appSecret: "---",
+  appKey: `${process.env.API_KEY}`,
+  appSecret: `${process.env.API_SECRET}`,
   // Following access tokens are not required if you are
   // at part 1 of user-auth process (ask for a request token)
   // or if you want a app-only client (see below)
-  accessToken: "---",
-  accessSecret: "---",
+  accessToken: `${process.env.ACCESS_TOKEN}`,
+  accessSecret: `${process.env.ACCESS_SECRET}`,
 });
 
-export var conn = mysql.createConnection({
-  host: "---",
-  user: "---",
-  password: "---",
-  database: "---",
+export const conn = mysql.createConnection({
+  host: `${process.env.HOST}`,
+  user: `${process.env.USER}`,
+  password: `${process.env.PASSWORD}`,
+  database: `${process.env.DATABASE}`,
   port: 3306,
 });
 
