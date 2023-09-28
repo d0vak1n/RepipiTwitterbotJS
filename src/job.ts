@@ -1,10 +1,12 @@
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { T as client, conn, connexionDB } from "../config";
 import fs from "fs";
-import TwitterApi from "twitter-api-v2";
-var cron = require('node-cron');
+import cron from "node-cron";
+
 
 function getLang() {
-  let arrayLang = ["ESP"];
+  const arrayLang = ["ESP"];
   let aleat = Math.round(Math.random() * (arrayLang.length - 1));
   let lang = arrayLang[aleat];
   console.log("We decided to use " + lang);
@@ -12,7 +14,7 @@ function getLang() {
 }
 
 function getDataSet(filelang: any) {
-  let arraypal = fs
+  const arraypal = fs
     .readFileSync("./dataset/" + filelang + ".txt")
     .toString()
     .split("\r\n");
@@ -22,13 +24,10 @@ function getDataSet(filelang: any) {
 // const twitterRepipi = new TwitterApi('1583402583502241793-ksq9tGBt6gUoQJDtWZTgfL0bm5jq26');
 
 async function twitAndRetwitWord() {
-  let lang = await getLang();
-  let arraypal = await getDataSet(lang);
-
   //  connexionDB();
   console.log("Getting a badword...");
-  var arraybadwords = getDataSet(getLang());
-  var aleat = Math.round(Math.random() * (arraybadwords.length - 1));
+  let arraybadwords = getDataSet(getLang());
+  let aleat = Math.round(Math.random() * (arraybadwords.length - 1));
   let wordofhour = arraybadwords[aleat];
   console.log("Word is " + wordofhour);
 
@@ -37,7 +36,7 @@ async function twitAndRetwitWord() {
 
 
 
-cron.schedule('0 * * * *', () => {
+cron.schedule('* * * * *', () => {
   console.log(' ');
   console.log('Starting again');
   console.log(' ');
