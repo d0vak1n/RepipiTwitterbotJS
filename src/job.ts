@@ -1,9 +1,8 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { T as client, /* conn, connexionDB */ } from "../config";
+import { T as client /* conn, connexionDB */ } from "../config";
 import fs from "fs";
 import cron from "node-cron";
-
 
 function getLang() {
   const arrayLang = ["ESP"];
@@ -17,7 +16,7 @@ function getDataSet(filelang: any) {
   const arraypal = fs
     .readFileSync("./dataset/" + filelang + ".txt")
     .toString()
-    .split("\r\n");
+    .split("\n");
   return arraypal;
 }
 
@@ -27,12 +26,11 @@ async function twitAndRetwitWord() {
   //  connexionDB();
   console.log("Getting a badword...");
   let arraybadwords = getDataSet(getLang());
-  console.log("array is " + arraybadwords);
   let aleat = Math.round(Math.random() * (arraybadwords.length - 1));
-  console.log("lenght is " + arraybadwords.length);
-  console.log("aleat is " + aleat);
   let wordofhour = arraybadwords[aleat];
   console.log("Word is " + wordofhour);
+
+  client.v2.tweet("Que te pasa, " + wordofhour + "?");
 }
 
 twitAndRetwitWord();
@@ -44,4 +42,3 @@ cron.schedule('* * * * *', () => {
   twitAndRetwitWord();
 });
 */
-
