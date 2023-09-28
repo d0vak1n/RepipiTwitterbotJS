@@ -34,11 +34,3 @@ async function twitAndRetwitWord() {
 }
 
 twitAndRetwitWord();
-/*
-cron.schedule('* * * * *', () => {
-  console.log(' ');
-  console.log('Starting again');
-  console.log(' ');
-  twitAndRetwitWord();
-});
-*/
