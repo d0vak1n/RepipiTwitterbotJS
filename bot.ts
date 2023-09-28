@@ -1,7 +1,7 @@
 //
 // Made with Twit by Raul
 //
-const { fork } = require("child_process");
+import { fork } from "child_process";
 
 fork("./src/job.ts");
 
