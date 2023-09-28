@@ -12,7 +12,7 @@ import mysql from "mysql";
 
 //const intervalo = 60 /* Minutes */ * 10 /* Seconds */ * 1000;
 
-dotenv.config()
+dotenv.config();
 export const T = new TwitterApi({
   appKey: `${process.env.API_KEY}`,
   appSecret: `${process.env.API_SECRET}`,
