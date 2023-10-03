@@ -20,10 +20,7 @@ function getDataSet(filelang: any) {
   return arraypal;
 }
 
-// const twitterRepipi = new TwitterApi('1583402583502241793-ksq9tGBt6gUoQJDtWZTgfL0bm5jq26');
-
 async function twitAndRetwitWord() {
-  //  connexionDB();
   console.log("Getting a badword...");
   let arraybadwords = getDataSet(getLang());
   let aleat = Math.round(Math.random() * (arraybadwords.length - 1));
