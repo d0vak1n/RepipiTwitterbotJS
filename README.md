@@ -12,10 +12,12 @@ More infomration for this license can be found _[HERE](https://www.whitesourceso
 
 ## Table of Content
 
-1. [Description](#descrption)
-2. [Installation](#installation)
-3. [Usage Tips](#usage)
-4. [Questions](#questions)
+- [RepipiTwitterBot](#repipitwitterbot)
+  - [License ](#license-)
+  - [Table of Content](#table-of-content)
+  - [Description ](#description-)
+  - [Installation Process ](#installation-process-)
+  - [Usage ](#usage-)
 
 ---
 
@@ -37,33 +39,28 @@ Then start after usage tips with:
 
 ---
 
-## Usage (change the "changethistoconfig.ts" to "config.ts")<a name='usage'></a>
+## Usage <a name='usage'></a>
 
+.env is required with this template:
+
+```
+API_KEY="appKey"
+API_SECRET="appSecret"
+ACCESS_TOKEN="accessToken"
+ACCESS_SECRET="accessSecret"
+```
+Then you dont need to edit:
 ```javascript
-var Twit = require("twit");
+import TwitterApi from "twitter-api-v2";
+import dotenv from "dotenv";
 
-var T = new Twit({
-  consumer_key: "---",
-  consumer_secret: "---",
-  access_token: "---",
-  access_token_secret: "---",
-  timeout_ms: 60 * 60 * 1000, // optional HTTP request timeout to apply to all requests
-  strictSSL: false, // optional - requires SSL certificates to be valid
-});
-
-var conn = mysql.createConnection({
-  host: "---",
-  user: "---",
-  password: "---",
-  database: "---",
-  port: 3306,
+export const T = new TwitterApi({
+  appKey: `${process.env.API_KEY}`,
+  appSecret: `${process.env.API_SECRET}`,
+  // Following access tokens are not required if you are
+  // at part 1 of user-auth process (ask for a request token)
+  // or if you want a app-only client (see below)
+  accessToken: `${process.env.ACCESS_TOKEN}`,
+  accessSecret: `${process.env.ACCESS_SECRET}`,
 });
 ```
-
----
-
-## Sequence Diagram <a name='diagram'></a>
-
-![Sequence diagram](https://ramoweb.com/wp-content/uploads/2022/10/capturadiagrama.png "Sequence diagram")
-
----
