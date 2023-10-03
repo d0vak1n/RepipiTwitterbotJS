@@ -1,6 +1,6 @@
 {
   "name": "repipitwitterbotjs",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Twitter bot of badwords",
   "main": "bot.js",
   "scripts": {
