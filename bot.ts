@@ -1,5 +1,5 @@
 //
-// Made with Twit by Raul
+// Made with Twitter-api-v2 by Raul
 //
 import { fork } from "child_process";
 
