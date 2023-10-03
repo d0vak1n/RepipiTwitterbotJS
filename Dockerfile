@@ -1,10 +1,8 @@
-FROM node:latest
+FROM node:20-alpine3.17
 
-# Install dependencies only when needed
 
 WORKDIR /RepipiTwitterbotJS
-
-COPY package*.json ./
+COPY . .
 RUN npm ci
 
 CMD npm run start
