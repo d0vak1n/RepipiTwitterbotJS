@@ -1,6 +1,6 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { T as client /* conn, connexionDB */ } from "../config";
+import { T as client } from "../config";
 import fs from "fs";
 
 function getLang() {
@@ -15,7 +15,7 @@ function getDataSet(filelang: any) {
   const arraypal = fs
     .readFileSync("./dataset/" + filelang + ".txt")
     .toString()
-    .split("\n");
+    .split("\r\n");
   return arraypal;
 }
 
@@ -26,5 +26,8 @@ export async function twitAndRetwitWord() {
   let wordofhour = arraybadwords[aleat];
   console.log("Word is " + wordofhour);
 
-  client.v2.tweet("Que te pasa, " + wordofhour + "?");
+  const tweet = await client.v2.tweet("Que te pasa, " + wordofhour + "?");
+  const datatweet = tweet.data.id;
+
+  return { datatweet };
 }
