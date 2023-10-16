@@ -5,7 +5,8 @@
   "main": "bot.js",
   "scripts": {
     "start-api": "ts-node bot.ts",
-    "test-index": "ts-node ./src/index.ts"
+    "test-index": "ts-node ./src/index.ts",
+    "test-code": "ts-node ./src/test.ts"
   },
   "keywords": [
     "twitter",
