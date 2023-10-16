@@ -3,7 +3,7 @@
 //
 import { fork } from "child_process";
 
-fork("./src/job.ts");
+fork("./src/index.ts");
 
 console.log("                                                                ");
 console.log("██████╗ ███████╗██████╗ ██╗██████╗ ██╗██████╗  ██████╗ ████████╗");
