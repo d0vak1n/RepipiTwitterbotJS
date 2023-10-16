@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { T as client /* conn, connexionDB */ } from "../config";
 import fs from "fs";
-import cron from "node-cron";
 
 function getLang() {
   const arrayLang = ["ESP"];
@@ -20,7 +19,7 @@ function getDataSet(filelang: any) {
   return arraypal;
 }
 
-async function twitAndRetwitWord() {
+export async function twitAndRetwitWord() {
   console.log("Getting a badword...");
   let arraybadwords = getDataSet(getLang());
   let aleat = Math.round(Math.random() * (arraybadwords.length - 1));
