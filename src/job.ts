@@ -29,9 +29,3 @@ async function twitAndRetwitWord() {
 
   client.v2.tweet("Que te pasa, " + wordofhour + "?");
 }
-
-cron.schedule("0 * * * *", () => {
-  console.log(" ");
-  twitAndRetwitWord();
-  console.log(" ");
-});
