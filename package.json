@@ -4,9 +4,8 @@
   "description": "Twitter bot of badwords",
   "main": "bot.js",
   "scripts": {
-    "start": "ts-node bot.ts",
-    "build": "ts-node bot.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-api": "ts-node bot.ts",
+    "test-index": "ts-node ./src/index.ts"
   },
   "keywords": [
     "twitter",
