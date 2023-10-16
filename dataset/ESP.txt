@@ -335,6 +335,7 @@ Espantajo
 Espanyaportes
 Esperpento
 Estas como un manojo de vergas
+Estezón
 Estorbo
 Estripa gasones
 Estupida
@@ -420,8 +421,7 @@ Gusano
 Hartosopa
 Hartosopas
 Hdp
-Hijo d puta
-Hijo de
+Hijo de puta
 Hijo de chacal
 Hijo de cura
 Hijo de hiena
@@ -501,6 +501,7 @@ Malparida
 Malparido
 Mamacallos
 Mamahostias
+Mamahuevo
 Mamarracho
 Mameluco
 Mamon
@@ -793,6 +794,7 @@ Te huele la espalda a baron dandi
 Tita freda
 Titafluixa
 Titafreda
+Tobillocabra
 Tocapelotas
 Tolai
 Tolete

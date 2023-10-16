@@ -4,9 +4,9 @@
   "description": "Twitter bot of badwords",
   "main": "bot.js",
   "scripts": {
-    "start": "ts-node bot.ts",
-    "build": "ts-node bot.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-api": "ts-node bot.ts",
+    "test-index": "ts-node ./src/index.ts",
+    "test-code": "ts-node ./src/test.ts"
   },
   "keywords": [
     "twitter",
@@ -17,14 +17,14 @@
   "dependencies": {
     "cjs": "^0.0.11",
     "dotenv": "^16.3.1",
-    "mysql": "^2.18.1",
-    "node-cron": "^3.0.2",
+    "express": "^4.18.2",
     "pm2": "^5.3.0",
     "ts-node": "^10.9.1",
     "twitter-api-v2": "^1.15.1",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@types/express": "^4.17.19",
     "@types/mysql": "^2.15.22",
     "@types/node": "^20.8.2",
     "@types/node-cron": "^3.0.9",

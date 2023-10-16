@@ -49,7 +49,9 @@ API_SECRET="appSecret"
 ACCESS_TOKEN="accessToken"
 ACCESS_SECRET="accessSecret"
 ```
+
 Then you dont need to edit:
+
 ```javascript
 import TwitterApi from "twitter-api-v2";
 import dotenv from "dotenv";
