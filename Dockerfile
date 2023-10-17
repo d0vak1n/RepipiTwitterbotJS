@@ -4,5 +4,7 @@ FROM node:20-alpine3.17
 WORKDIR /RepipiTwitterbotJS
 COPY . .
 RUN npm ci
+COPY . .
 
-CMD npm run start-api
+ENTRYPOINT ["npm", "run", "start-api"]
+EXPOSE 3000
