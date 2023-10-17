@@ -1,18 +1,17 @@
 /* eslint-disable prefer-const */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { T as client } from "../config";
 import fs from "fs";
 
-function getLang() {
-  const arrayLang = ["ESP"];
-  let aleat = Math.round(Math.random() * (arrayLang.length - 1));
-  let lang = arrayLang[aleat];
+function getLang(): string {
+  const arrayLang: string[] = ["ESP"];
+  let aleat: number = Math.round(Math.random() * (arrayLang.length - 1));
+  let lang: string = arrayLang[aleat];
   console.log("We decided to use " + lang);
   return lang;
 }
 
-function getDataSet(filelang: any) {
-  const arraypal = fs
+function getDataSet(filelang: string) {
+  const arraypal: string[] = fs
     .readFileSync("./dataset/" + filelang + ".txt")
     .toString()
     .split("\r\n");
@@ -21,9 +20,9 @@ function getDataSet(filelang: any) {
 
 export async function twitAndRetwitWord() {
   console.log("Getting a badword...");
-  let arraybadwords = getDataSet(getLang());
-  let aleat = Math.round(Math.random() * (arraybadwords.length - 1));
-  let wordofhour = arraybadwords[aleat];
+  let arraybadwords: string[] = getDataSet(getLang());
+  let aleat: number = Math.round(Math.random() * (arraybadwords.length - 1));
+  let wordofhour: string = arraybadwords[aleat];
   console.log("Word is " + wordofhour);
 
   const tweet = await client.v2.tweet("Que te pasa, " + wordofhour + "?");
