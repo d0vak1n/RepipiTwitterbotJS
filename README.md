@@ -23,20 +23,16 @@ More infomration for this license can be found _[HERE](https://www.whitesourceso
 
 ## Description <a name='description'></a>
 
-Publish a spanish badword every hour and retweet the last 2 tweets with that word.
+Publish a spanish badword every hour.
 
 ---
 
 ## Installation Process <a name='installation'></a>
 
 Run:
-
-    npm i
-
-Then start after usage tips with:
-
-    npm run start
-
+```
+docker push d0vak1n/repipitwitterbotjs:tagname
+```
 ---
 
 ## Usage <a name='usage'></a>
@@ -44,25 +40,12 @@ Then start after usage tips with:
 .env is required with this template:
 
 ```
+API_BOT_KEY="apiBotKey"
+PORT="3000"
+
+# Api Twitter acces keys v1
 API_KEY="appKey"
 API_SECRET="appSecret"
 ACCESS_TOKEN="accessToken"
 ACCESS_SECRET="accessSecret"
-```
-
-Then you dont need to edit:
-
-```javascript
-import TwitterApi from "twitter-api-v2";
-import dotenv from "dotenv";
-
-export const T = new TwitterApi({
-  appKey: `${process.env.API_KEY}`,
-  appSecret: `${process.env.API_SECRET}`,
-  // Following access tokens are not required if you are
-  // at part 1 of user-auth process (ask for a request token)
-  // or if you want a app-only client (see below)
-  accessToken: `${process.env.ACCESS_TOKEN}`,
-  accessSecret: `${process.env.ACCESS_SECRET}`,
-});
 ```
