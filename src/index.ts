@@ -1,6 +1,7 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express, Request, Response, } from "express";
 import dotenv from "dotenv";
 import { twitAndRetwitWord } from "./job";
+import path from "path";
 
 dotenv.config();
 const app: Express = express();
@@ -16,6 +17,13 @@ app.get("/insultar/:auth?", async (req: Request, res: Response) => {
     console.log("Alguien esta intentando acceder Ò.Ó");
     res.status(401).json({ message: "Unauthorized" });
   }
+});
+
+app.get("/", async (req: Request, res: Response) => {
+
+  res.sendFile(path.join(__dirname, '../favicon.ico'));
+  res.status(200);
+
 });
 
 app.listen(port, () => {
