@@ -3,20 +3,26 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import fs from "fs";
 
-function getLang() {
+function getLang(): string {
   const arrayLang = ["ESP"];
-  let aleat = Math.round(Math.random() * (arrayLang.length - 1));
-  let lang = arrayLang[aleat];
+  let aleat: number = Math.round(Math.random() * (arrayLang.length - 1));
+  let lang: string = arrayLang[aleat];
   console.log("We decided to use " + lang);
   return lang;
 }
 
-function getDataSet(filelang: any) {
-  const arraypal = fs
-    .readFileSync("./dataset/" + filelang + ".txt")
-    .toString()
-    .split("\r\n");
-  console.log(arraypal);
+function getDataSet(filelang: string): string[] {
+  const arraypal: string[] = [];
+  const readcontent: string = fs.readFileSync(
+    "./dataset/" + filelang + ".txt",
+    "utf-8",
+  );
+  console.log(readcontent);
+  const arraycontent: Array<string> = readcontent.split("\r\n");
+  console.log(arraycontent);
+  arraycontent.forEach((arraypal: string) => {
+    arraypal.push(arraypal.replace("\r", ""));
+  });
   return arraypal;
 }
 
@@ -27,6 +33,7 @@ export async function twitAndRetwitWord() {
   let wordofhour = arraybadwords[aleat];
   console.log("---" + wordofhour + "---");
   console.log("Word is " + wordofhour);
+  console.log("Que te pasa, " + wordofhour + "?");
 }
 
 twitAndRetwitWord();
