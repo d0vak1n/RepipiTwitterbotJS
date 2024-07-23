@@ -1,37 +1,28 @@
-/* eslint-disable prefer-const */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import fs from "fs";
 
 function getLang(): string {
   const arrayLang = ["ESP"];
-  let aleat: number = Math.round(Math.random() * (arrayLang.length - 1));
-  let lang: string = arrayLang[aleat];
+  const aleat: number = Math.round(Math.random() * (arrayLang.length - 1));
+  const lang: string = arrayLang[aleat];
   console.log("We decided to use " + lang);
   return lang;
 }
 
-function getDataSet(filelang: string): string[] {
-  const arraypal: string[] = [];
-  const readcontent: string = fs.readFileSync(
-    "./dataset/" + filelang + ".txt",
-    "utf-8",
-  );
-  console.log(readcontent);
-  const arraycontent: Array<string> = readcontent.split("\r\n");
-  console.log(arraycontent);
-  arraycontent.forEach((arraypal: string) => {
-    arraypal.push(arraypal.replace("\r", ""));
-  });
+function getDataSet(filelang: string) {
+  const arraypal: string[] = fs
+    .readFileSync("./dataset/" + filelang + ".txt")
+    .toString()
+    .split(/\r?\n/);
   return arraypal;
 }
 
-export async function twitAndRetwitWord() {
+
+async function twitAndRetwitWord() {
   console.log("Getting a badword...");
-  let arraybadwords = getDataSet(getLang());
-  let aleat = Math.round(Math.random() * (arraybadwords.length - 1));
-  let wordofhour = arraybadwords[aleat];
-  console.log("---" + wordofhour + "---");
+  const arraybadwords = getDataSet(getLang());
+  const aleat = Math.round(Math.random() * (arraybadwords.length - 1));
+  console.log(aleat);
+  const wordofhour = arraybadwords[aleat];
   console.log("Word is " + wordofhour);
   console.log("Que te pasa, " + wordofhour + "?");
 }
