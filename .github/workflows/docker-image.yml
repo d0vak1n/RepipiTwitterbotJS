@@ -22,6 +22,6 @@ jobs:
 
     - name: Build and push the Docker image
       run: |
-        docker docker login --username d0vak1n ${{secrets.GH_PACKAGES}} ghcr.io
+        echo ${{ secrets.GH_PACKAGES }} | docker login docker.pkg.github.com -u d0vak1n --password-stdin
         docker build -t docker.pkg.github.com/d0vak1n/repipitwitterbotjs/repipi-bot:latest .
         docker push docker.pkg.github.com/d0vak1n/repipitwitterbotjs/repipi-bot:latest
