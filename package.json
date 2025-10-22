@@ -1,34 +1,5 @@
 {
-  "name": "repipitwitterbotjs",
-  "version": "1.2.71",
-  "description": "Twitter bot of badwords",
-  "main": "bot.js",
-  "scripts": {
-    "start-api": "ts-node bot.ts",
-    "test-index": "ts-node ./src/index.ts",
-    "test-code": "ts-node ./src/test.ts"
-  },
-  "keywords": [
-    "twitter",
-    "bot"
-  ],
-  "author": "RaMo",
-  "license": "ISC",
   "dependencies": {
-    "cjs": "^0.0.11",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "ts-node": "^10.9.2",
-    "twitter-api-v2": "^1.20.2",
-    "uuid": "^11.0.5"
-  },
-  "devDependencies": {
-    "@types/express": "^5.0.0",
-    "@types/node": "^22.8.7",
-    "@typescript-eslint/eslint-plugin": "^8.33.0",
-    "@typescript-eslint/parser": "^8.20.0",
-    "eslint": "^9.21.0",
-    "prettier": "3.4.2",
-    "typescript": "^5.5.3"
+    "@supabase/supabase-js": "^2.76.1"
   }
 }
