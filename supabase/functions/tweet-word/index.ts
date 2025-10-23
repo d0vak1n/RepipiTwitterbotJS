@@ -1,29 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-
-// Dataset de palabras españolas
-const SPANISH_WORDS = [
-  "Abadol",
-  "Abejarruca",
-  "Abejarruco",
-  "Aberracion",
-  "Aberración",
-  "Aberrante",
-  "Ablanda brevas",
-  "Abollao",
-  "Aborto",
-  "Abrazafarolas",
-  "Abrillantaglandes",
-  "Abusón",
-  "Acelga",
-  "Achanta",
-  "Adoquín",
-  "Aguafiestas",
-  "Alfeñique",
-  "Alma de cántaro",
-  "Analfabeto",
-  "Anormal",
-  // Añade más palabras aquí desde tu dataset
-];
+import { getRandomWord } from "./wordSelector.ts";
 
 interface TweetV2PostTweetResult {
   data: {
@@ -51,7 +27,7 @@ serve(async (req) => {
     const API_BOT_KEY = Deno.env.get("API_BOT_KEY");
 
     if (!authHeader || !authHeader.includes(API_BOT_KEY || "")) {
-      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+      return new Response(JSON.stringify({ error: "Unauthorizeeeed" }), {
         status: 401,
         headers: {
           "Content-Type": "application/json",
@@ -60,12 +36,11 @@ serve(async (req) => {
       });
     }
 
-    // Obtener una palabra aleatoria
-    const randomIndex = Math.floor(Math.random() * SPANISH_WORDS.length);
-    const word = SPANISH_WORDS[randomIndex];
+    // Get a random word from a random dataset file
+    const { word, country } = await getRandomWord();
     const tweetText = `Que te pasa, ${word}?`;
 
-    console.log(`Tweeting word: ${word}`);
+    console.log(`Tweeting word: ${word} from ${country}`);
 
     // Configurar credenciales de Twitter
     const apiKey = Deno.env.get("API_KEY");
@@ -132,6 +107,7 @@ serve(async (req) => {
       JSON.stringify({
         success: true,
         word: word,
+        country: country,
         tweetId: tweetData.data.id,
         tweetText: tweetData.data.text,
         message: "Tweet posted successfully!",
