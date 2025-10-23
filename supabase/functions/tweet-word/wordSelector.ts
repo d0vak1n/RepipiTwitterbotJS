@@ -1,71 +1,39 @@
+import {
+  COUNTRY_CODES,
+  WORDS_BY_COUNTRY,
+  DATASET_STATS,
+  type CountryCode,
+} from "./dataset/index.ts";
+
 export interface WordSelection {
   word: string;
   country: string;
 }
 
 /**
- * Reads all .txt files from the dataset directory
- * @returns Array of filenames
- */
-async function getDatasetFiles(): Promise<string[]> {
-  const datasetPath = "./dataset";
-  const files: string[] = [];
-
-  try {
-    for await (const dirEntry of Deno.readDir(datasetPath)) {
-      if (dirEntry.isFile && dirEntry.name.endsWith(".txt")) {
-        files.push(dirEntry.name);
-      }
-    }
-  } catch (error) {
-    console.error("Error reading dataset directory:", error);
-    throw new Error("Failed to read dataset files");
-  }
-
-  if (files.length === 0) {
-    throw new Error("No dataset files found in ./dataset directory");
-  }
-
-  return files.sort(); // Sort alphabetically for consistency
-}
-
-/**
  * Selects a random word from the dataset
  * Process:
- * 1. Reads all .txt files from dataset directory
- * 2. Randomly selects a country file
- * 3. Reads all words from that file
- * 4. Randomly selects a word from the file
+ * 1. Randomly selects a country from available countries
+ * 2. Gets all words from that country's dataset
+ * 3. Randomly selects a word from the list
  *
- * @returns Promise with the selected word and country code
+ * @returns The selected word and country code
  */
-export async function getRandomWord(): Promise<WordSelection> {
-  // 1. Get all dataset files dynamically
-  const datasetFiles = await getDatasetFiles();
-  console.log(`Found ${datasetFiles.length} dataset files`);
+export function getRandomWord(): WordSelection {
+  // 1. Select random country
+  const randomCountryIndex = Math.floor(Math.random() * COUNTRY_CODES.length);
+  const country = COUNTRY_CODES[randomCountryIndex] as CountryCode;
 
-  // 2. Select random file from dataset
-  const randomFileIndex = Math.floor(Math.random() * datasetFiles.length);
-  const selectedFile = datasetFiles[randomFileIndex];
-  const country = selectedFile.replace(".txt", "");
+  console.log(`Selected country: ${country}`);
 
-  console.log(`Selected country file: ${selectedFile}`);
+  // 2. Get words for selected country
+  const words = WORDS_BY_COUNTRY[country];
 
-  // 2. Read the file
-  const filePath = `./dataset/${selectedFile}`;
-  const fileContent = await Deno.readTextFile(filePath);
-
-  // 3. Split into words (by line)
-  const words = fileContent
-    .split(/\r?\n/)
-    .map((word) => word.trim())
-    .filter((word) => word.length > 0);
-
-  if (words.length === 0) {
-    throw new Error(`No words found in file: ${selectedFile}`);
+  if (!words || words.length === 0) {
+    throw new Error(`No words found for country: ${country}`);
   }
 
-  // 4. Select random word
+  // 3. Select random word
   const randomWordIndex = Math.floor(Math.random() * words.length);
   const selectedWord = words[randomWordIndex];
 
@@ -80,7 +48,14 @@ export async function getRandomWord(): Promise<WordSelection> {
  * Gets the list of available country codes in the dataset
  * @returns Array of country codes
  */
-export async function getAvailableCountries(): Promise<string[]> {
-  const datasetFiles = await getDatasetFiles();
-  return datasetFiles.map((file) => file.replace(".txt", ""));
+export function getAvailableCountries(): readonly string[] {
+  return COUNTRY_CODES;
+}
+
+/**
+ * Gets dataset statistics
+ * @returns Object with dataset statistics
+ */
+export function getDatasetStats() {
+  return DATASET_STATS;
 }

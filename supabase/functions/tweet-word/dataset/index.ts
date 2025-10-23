@@ -5,27 +5,51 @@
  * Total de palabras: 1907
  */
 
-export { ARG_WORDS } from './ARG';
-export { BOL_WORDS } from './BOL';
-export { CHL_WORDS } from './CHL';
-export { COL_WORDS } from './COL';
-export { CRI_WORDS } from './CRI';
-export { CUB_WORDS } from './CUB';
-export { DOM_WORDS } from './DOM';
-export { ECU_WORDS } from './ECU';
-export { ESP_WORDS } from './ESP';
-export { GNQ_WORDS } from './GNQ';
-export { GTM_WORDS } from './GTM';
-export { HND_WORDS } from './HND';
-export { MEX_WORDS } from './MEX';
-export { NIC_WORDS } from './NIC';
-export { PAN_WORDS } from './PAN';
-export { PER_WORDS } from './PER';
-export { PRI_WORDS } from './PRI';
-export { PRY_WORDS } from './PRY';
-export { SLV_WORDS } from './SLV';
-export { URY_WORDS } from './URY';
-export { VEN_WORDS } from './VEN';
+import { ARG_WORDS } from "./ARG.ts";
+import { BOL_WORDS } from "./BOL.ts";
+import { CHL_WORDS } from "./CHL.ts";
+import { COL_WORDS } from "./COL.ts";
+import { CRI_WORDS } from "./CRI.ts";
+import { CUB_WORDS } from "./CUB.ts";
+import { DOM_WORDS } from "./DOM.ts";
+import { ECU_WORDS } from "./ECU.ts";
+import { ESP_WORDS } from "./ESP.ts";
+import { GNQ_WORDS } from "./GNQ.ts";
+import { GTM_WORDS } from "./GTM.ts";
+import { HND_WORDS } from "./HND.ts";
+import { MEX_WORDS } from "./MEX.ts";
+import { NIC_WORDS } from "./NIC.ts";
+import { PAN_WORDS } from "./PAN.ts";
+import { PER_WORDS } from "./PER.ts";
+import { PRI_WORDS } from "./PRI.ts";
+import { PRY_WORDS } from "./PRY.ts";
+import { SLV_WORDS } from "./SLV.ts";
+import { URY_WORDS } from "./URY.ts";
+import { VEN_WORDS } from "./VEN.ts";
+
+export {
+  ARG_WORDS,
+  BOL_WORDS,
+  CHL_WORDS,
+  COL_WORDS,
+  CRI_WORDS,
+  CUB_WORDS,
+  DOM_WORDS,
+  ECU_WORDS,
+  ESP_WORDS,
+  GNQ_WORDS,
+  GTM_WORDS,
+  HND_WORDS,
+  MEX_WORDS,
+  NIC_WORDS,
+  PAN_WORDS,
+  PER_WORDS,
+  PRI_WORDS,
+  PRY_WORDS,
+  SLV_WORDS,
+  URY_WORDS,
+  VEN_WORDS,
+};
 
 /**
  * Todos los códigos de país disponibles
