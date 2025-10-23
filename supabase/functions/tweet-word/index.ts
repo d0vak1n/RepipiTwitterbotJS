@@ -27,7 +27,7 @@ serve(async (req) => {
     const API_BOT_KEY = Deno.env.get("API_BOT_KEY");
 
     if (!authHeader || !authHeader.includes(API_BOT_KEY || "")) {
-      return new Response(JSON.stringify({ error: "Unauthorizeeeed" }), {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
         headers: {
           "Content-Type": "application/json",
@@ -37,7 +37,7 @@ serve(async (req) => {
     }
 
     // Get a random word from a random dataset file
-    const { word, country } = await getRandomWord();
+    const { word, country } = getRandomWord();
     const tweetText = `Que te pasa, ${word}?`;
 
     console.log(`Tweeting word: ${word} from ${country}`);
