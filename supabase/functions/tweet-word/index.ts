@@ -37,7 +37,7 @@ serve(async (req) => {
     }
 
     // Get a random word from a random dataset file
-    const { word, country } = getRandomWord();
+    const { word, country } = await getRandomWord();
     const tweetText = `Que te pasa, ${word}?`;
 
     console.log(`Tweeting word: ${word} from ${country}`);
