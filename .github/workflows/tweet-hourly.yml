@@ -1,28 +1,28 @@
-name: Tweet Word Hourly
+#name: Tweet Word Hourly
 
-on:
-    schedule:
-        # Ejecutar cada hora en punto (minuto 0)
-        - cron: "0 * * * *"
-    workflow_dispatch: # Permite ejecución manual desde GitHub
+#on:
+#    schedule:
+#        # Ejecutar cada hora en punto (minuto 0)
+#        - cron: "0 * * * *"
+#    workflow_dispatch: # Permite ejecución manual desde GitHub
 
-jobs:
-    tweet:
-        runs-on: ubuntu-latest
+#jobs:
+#    tweet:
+#        runs-on: ubuntu-latest
 
-        steps:
-            - name: Call Supabase Function to Tweet
-              run: |
-                  curl -L -X POST 'https://rcwjzrfpmbgxwkgzqoqo.supabase.co/functions/v1/tweet-word' \
-                    -H 'Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}' \
-                    -H 'Content-Type: application/json' \
-                    --data '{"name":"Functions"}' \
-                    --fail-with-body
+#        steps:
+#            - name: Call Supabase Function to Tweet
+#              run: |
+#                  curl -L -X POST 'https://rcwjzrfpmbgxwkgzqoqo.supabase.co/functions/v1/tweet-word' \
+#                    -H 'Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}' \
+#                    -H 'Content-Type: application/json' \
+#                    --data '{"name":"Functions"}' \
+#                    --fail-with-body
 
-            - name: Log completion
-              if: success()
-              run: echo "✅ Tweet posted successfully at $(date)"
+#            - name: Log completion
+#              if: success()
+#              run: echo "✅ Tweet posted successfully at $(date)"
 
-            - name: Log failure
-              if: failure()
-              run: echo "❌ Failed to post tweet at $(date)"
+#            - name: Log failure
+#              if: failure()
+#              run: echo "❌ Failed to post tweet at $(date)"
